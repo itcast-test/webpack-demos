@@ -6,6 +6,7 @@
  * 所以你要知道：这里使用的都是 Node.js 中的代码相关语法
  */
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   /**
@@ -34,6 +35,26 @@ module.exports = {
   // 建议在开发期间使用 development 开发模式，更快的编译速度
   //     发布上线，建议使用 production 模式，更好的构建结果
   mode: 'development',
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      // 指定打包的 HTML 文件
+      // 它会把该文件也打包到出口目录中
+      // 同时它能帮你自动引用打包的结果文件
+      // 不仅仅如此，它还能对 html 文件进行压缩等处理
+      template: './index.html',
+      // minify: true
+      // minify: {
+      //   collapseWhitespace: true,
+      //   // 删除注释
+      //   removeComments: true,
+      //   removeRedundantAttributes: true,
+      //   removeScriptTypeAttributes: true,
+      //   removeStyleLinkTypeAttributes: true,
+      //   useShortDoctype: true
+      // }
+    })
+  ],
 
   module: {
     /**

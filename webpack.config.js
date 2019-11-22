@@ -33,5 +33,25 @@ module.exports = {
   // 如果不设置该选项，那么默认会使用 production 模式
   // 建议在开发期间使用 development 开发模式，更快的编译速度
   //     发布上线，建议使用 production 模式，更好的构建结果
-  mode: 'development'
+  mode: 'development',
+
+  module: {
+    /**
+     * 配置资源对应的 loader 加载器
+     */
+    rules: [
+      {
+        // 当 test 匹配以 .css 结尾的资源文件的时候，use 使用 style-loader 和 css-loader 来处理
+        test: /\.css$/,
+        // css-loader 负责把 css 转为一个 js 模块
+        // style-loader 负责运行期间生产 style 节点，插入页面的 head 中
+        // 注意：有顺序
+        //
+        use: [
+          'style-loader', // 2号
+          'css-loader' // 1号
+        ]
+      }
+    ]
+  }
 }

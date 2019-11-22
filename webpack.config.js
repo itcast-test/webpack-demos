@@ -51,6 +51,12 @@ module.exports = {
           'style-loader', // 2号
           'css-loader' // 1号
         ]
+      },
+      // 当匹配到以 png、svg、jpg、gif 结尾的文件的时候，使用 file-loader 来加载处理
+      // 为了防止文件同名冲突，它自动生成了一个不重复文件名
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader']
       }
     ]
   }

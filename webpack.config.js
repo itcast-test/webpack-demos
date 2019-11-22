@@ -25,5 +25,13 @@ module.exports = {
     // path: 'C:\\Users\\LPZ\\Desktop\\FE88\\webpack-demos\\demo1\\dist', // 打包的结果目录，默认是 dist，必须是一个绝对路径
     // path: './dist/', // 打包的结果目录，默认是 dist，必须是一个绝对路径
     filename: 'bundle.js' // 打包的结果文件名，默认叫 main.js
-  }
+  },
+
+  // 打包模式：
+  //    development 开发模式，更快的打包速度（无优化，例如没有压缩）
+  //    production  生产模式，更优的打包结果（优化，例如代码压缩了）
+  // 如果不设置该选项，那么默认会使用 production 模式
+  // 建议在开发期间使用 development 开发模式，更快的编译速度
+  //     发布上线，建议使用 production 模式，更好的构建结果
+  mode: 'development'
 }
